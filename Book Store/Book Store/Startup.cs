@@ -16,6 +16,7 @@ namespace Book_Store
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -25,16 +26,50 @@ namespace Book_Store
             {
                 app.UseDeveloperExceptionPage();
             }
+            /*
+            app.Use(async(context, next) =>
+            {
+                await context.Response.WriteAsync("Hello from my first Middleware");
 
-            app.UseRouting();
+                await next();
+
+                await context.Response.WriteAsync("Hello Again from First Middleware Response");
+            });
+
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hello from my second Middleware");
+
+                await next();
+
+                await context.Response.WriteAsync("Hello Response from second Middleware");
+
+            });
+            
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hello from my Third Middleware");
+
+                await next();
+
+                await context.Response.WriteAsync("Hello Response from Third Middleware");
+
+            });
+            */
+             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                endpoints.MapDefaultControllerRoute();
+                /*endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
+                    if (env.IsEnvironment("Development"))
+                    {
+                        await context.Response.WriteAsync("Hello From Development Environment");
+                    }
+                    //await context.Response.WriteAsync(env.EnvironmentName);
+                });*/
+            }); 
         }
     }
 }
