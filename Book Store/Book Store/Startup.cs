@@ -56,7 +56,9 @@ namespace Book_Store
 
             });
             */
-             app.UseRouting();
+            app.UseStaticFiles();  // to include static files in our application.
+
+            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {

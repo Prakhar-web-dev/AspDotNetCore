@@ -8,9 +8,27 @@ namespace Book_Store.Controllers
 {
     public class HomeController: Controller
     {
-        public string index()
+        public ViewResult index()
         {
-            return "Prakhar Sinha";
+            //return View("aboutUs"); 
+            return View();
+        }
+
+        public ViewResult aboutUs()
+        {
+            return View();   
+        }
+        public ViewResult model()
+        {
+            var obj = new { id = 1, title = "harry", author = "peter" };
+            //return View(obj);
+
+            return View("aboutUs", obj);  
+        }
+        public ViewResult ContactUs()
+        {
+            return View("TempView/temp.cshtml"); // for returning view from different location or differnt folder
+            //return View();
         }
     }
 }

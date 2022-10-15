@@ -5,6 +5,10 @@
     <RootNamespace>Book_Store</RootNamespace>
   </PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4"/>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="wwwroot\js\" />
+	  <Folder Include="wwwroot\Image\" />
 	</ItemGroup>
 </Project>
